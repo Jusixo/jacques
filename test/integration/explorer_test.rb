@@ -12,14 +12,14 @@ class ExplorerTest < ActionDispatch::IntegrationTest
     assert_equal 200, status
     json = JSON.parse(response.body)
     assert json['notes']
-    assert json['notes'].length == 10
+    assert_equal 10, json['notes'].length
   end
 
   def test_it_should_be_in_the_correct_format
     get '/api/notes.json'
     json = JSON.parse(response.body)
     assert json['notes'].first == example_note(Note.first),
-      json['notes'].first.inspect + "\n\n" + example_note(Note.first).inspect
+      "Got: " + json['notes'].first.inspect + "\n\nExpected: " + example_note(Note.first).inspect
   end
 
   def test_tag_lists_are_correct

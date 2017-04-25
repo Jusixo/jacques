@@ -27,6 +27,8 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
   gem 'database_cleaner'
+  gem 'jbuilder', '~> 2.0'
+  gem 'awesome_print'
 end
 
 group :development do
